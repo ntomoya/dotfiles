@@ -11,10 +11,14 @@ if dein#load_state('~/.vim/dein/bundle/')
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('davidhalter/jedi-vim')
+  call dein#add('marcus/rsense')
   call dein#add('scrooloose/nerdtree')
+  call dein#add('scrooloose/syntastic')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/neomru.vim')
+  call dein#add('supermomonga/neocomplete-rsense.vim')
+  call dein#add('szw/vim-tags')
   call dein#add('tpope/vim-rails')
   call dein#add('tpope/vim-endwise')
   call dein#add('tomtom/tcomment_vim')
@@ -108,5 +112,11 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 "  Python
 autocmd FileType python setlocal omnifunc=jedi#completions
-
 let g:jedi#auto_vim_configuration = 0
+
+" Ruby
+let g:rsenseHome = '~/.vim/rsense'
+let g:rsenseUseOmniFunc = 1
+let g:neocomplete#sources#omni#input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
