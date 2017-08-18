@@ -33,6 +33,7 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "tcnksm/docker-alias", use:zshrc
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "themes/agnoster", from:oh-my-zsh, as:theme
+zplug "zsh-users/zsh-completions"
 
 if ! zplug check --verbose; then
 	print "Install? [y/N]:"
