@@ -11,6 +11,7 @@ if dein#load_state('~/.vim/dein/bundle/')
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('davidhalter/jedi-vim')
+  call dein#add('fatih/vim-go')
   call dein#add('marcus/rsense')
   call dein#add('scrooloose/nerdtree')
   call dein#add('scrooloose/syntastic')
@@ -85,7 +86,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-"inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
@@ -120,3 +120,6 @@ let g:rsenseUseOmniFunc = 1
 let g:neocomplete#sources#omni#input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+
+" Go
+let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
