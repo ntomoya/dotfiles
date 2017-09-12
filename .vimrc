@@ -13,13 +13,15 @@ if dein#load_state('~/.vim/dein/bundle/')
   call dein#add('davidhalter/jedi-vim')
   call dein#add('fatih/vim-go')
   call dein#add('marcus/rsense')
+  call dein#add('osyo-manga/vim-monster')
   call dein#add('scrooloose/nerdtree')
   call dein#add('scrooloose/syntastic')
+  call dein#add('Shougo/neocomplcache.vim')
+  call dein#add('Shougo/neocomplcache-rsense.vim')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/unite.vim')
   call dein#add('Shougo/neomru.vim')
   call dein#add('slim-template/vim-slim')
-  call dein#add('supermomonga/neocomplete-rsense.vim')
   call dein#add('szw/vim-tags')
   call dein#add('tpope/vim-rails')
   call dein#add('tpope/vim-endwise')
@@ -111,16 +113,37 @@ endif
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
+" neocomplcacheの設定
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+
 "  Python
 autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#auto_vim_configuration = 0
 
 " Ruby
-let g:rsenseHome = '~/.vim/rsense'
+let g:rsenseHome = expand('~/.vim/rsense')
 let g:rsenseUseOmniFunc = 1
-let g:neocomplete#sources#omni#input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+"let g:neocomplete#sources#omni#input_patterns = {
+"      \   ruby : '[^. *\t]\.\w*\|\h\w*::',
+"      \}
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 
 " Go
 let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
