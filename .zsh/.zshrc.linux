@@ -1,10 +1,2 @@
-source ~/.zsh/.zshrc.common
-
-export ANDROID_HOME=/opt/android-sdk
-export PATH=$PATH:/opt/android-sdk/platform-tools
-export PATH=$PATH:${HOME}/.config/yarn/global/node_modules/.bin
-export PATH=$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin
-eval "$(rbenv init -)"
-export GOPATH=$HOME/.go
-
 alias ls='ls --color=auto'
+

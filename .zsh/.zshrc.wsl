@@ -1,0 +1,12 @@
+alias ls='ls --color=auto'
+
+unsetopt beep
+export LS_COLORS='ow=01;36;40'
+export DISPLAY=localhost:0.0
+
+IM=fcitx
+export XMODIFIERS="@im=$IM"
+export GTK_IM_MODULE=$IM
+export QT_IM_MODULE=$IM
+export NO_AT_BRIDGE=1
+
