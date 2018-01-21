@@ -29,3 +29,4 @@ set smartindent
 set number
 set visualbell
 syntax on
+set background=dark
