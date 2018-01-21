@@ -1,0 +1,1 @@
+/home/tomoya/dotfiles/.tmux
