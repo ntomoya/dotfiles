@@ -90,4 +90,7 @@ case $(uname -a) in
     ;;
 esac
 
+if [ ! -e "$HOME/.zsh/.zshrc.env" ]; then
+  touch "$HOME/.zsh/.zshrc.env"
+fi
 source "$HOME/.zsh/.zshrc.env"
