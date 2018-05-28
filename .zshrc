@@ -2,8 +2,8 @@
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -25,6 +25,7 @@ zplug "tcnksm/docker-alias", use:zshrc
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "themes/agnoster", from:oh-my-zsh, as:theme
 zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-autosuggestions"
 
 if ! zplug check --verbose; then
 	print "Install? [y/N]:"
