@@ -38,11 +38,6 @@ fi
 
 zplug load
 
-# Node.js yarn
-if hash yarn 2>/dev/null; then
-  export PATH=$(yarn global bin):$PATH
-fi
-
 
 # Go
 if [ -e /usr/local/go ]; then
@@ -59,10 +54,11 @@ fi
 if [ -e $HOME/.rbenv ]; then
   export PATH=$HOME/.rbenv/bin:$PATH
 fi
-
-if hash rbenv 2>/dev/null; then
-  eval "$(rbenv init -)"
-fi
+# lazy loading
+rbenv() {
+  eval "$(command rbenv init -)"
+  rbenv "$@"
+}
 
 
 # Python
@@ -71,14 +67,14 @@ if [ -e $HOME/.pyenv ]; then
   export PATH=$PYENV_ROOT/bin:$PATH
 
 fi
-
-if hash pyenv 2>/dev/null; then
-  eval "$(pyenv init -)"
-
+# lazy loading
+pyenv() {
+  eval "$(command pyenv init -)"
   if [ -e $(pyenv root)/plugins/pyenv-virtualenv ]; then
-    eval "$(pyenv virtualenv-init -)"
+    eval "$(command pyenv virtualenv-init -)"
   fi
-fi
+  pyenv "$@"
+}
 
 
 case $(uname -a) in
