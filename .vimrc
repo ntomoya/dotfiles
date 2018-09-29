@@ -29,4 +29,5 @@ set smartindent
 set number
 set visualbell
 syntax on
+set term=xterm-256color
 set background=dark
