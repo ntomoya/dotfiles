@@ -4,6 +4,8 @@
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
+setopt inc_append_history
+setopt share_history
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
