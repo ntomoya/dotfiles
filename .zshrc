@@ -61,22 +61,6 @@ rbenv() {
 }
 
 
-# Python
-if [ -e $HOME/.pyenv ]; then
-  export PYENV_ROOT=$HOME/.pyenv
-  export PATH=$PYENV_ROOT/bin:$PATH
-
-fi
-# lazy loading
-pyenv() {
-  eval "$(command pyenv init -)"
-  if [ -e $(pyenv root)/plugins/pyenv-virtualenv ]; then
-    eval "$(command pyenv virtualenv-init -)"
-  fi
-  pyenv "$@"
-}
-
-
 case $(uname -a) in
   *Microsoft*)
     source "$HOME/.zsh/.zshrc.wsl"
