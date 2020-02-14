@@ -1,12 +1,10 @@
 #!/bin/bash
 
-for f in .??*
+install_list=".tmux.conf .tmux .vimrc .vim .zshrc .zsh .zplugin"
+
+for f in $install_list
 do
-  [[ "$f" == ".git" ]] && continue
-  [[ "$f" == ".gitmodules" ]] && continue
-  [[ "$f" == ".DS_Store" ]] && continue
-
-
-  echo "$f"
-  ln -s ~/dotfiles/"$f" ~/"$f"
+  rm -rf ~/$f > /dev/null 2>&1
+  ln -s ~/dotfiles/$f ~/$f
+  echo $f
 done
