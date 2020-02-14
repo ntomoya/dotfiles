@@ -4,9 +4,9 @@
 [submodule ".vim/dein/repos/github.com/Shougo/dein.vim"]
 	path = .vim/dein/repos/github.com/Shougo/dein.vim
 	url = https://github.com/Shougo/dein.vim
-[submodule ".zsh/.zplug"]
-	path = .zsh/.zplug
-	url = https://github.com/zplug/zplug
 [submodule ".vim/rsense"]
 	path = .vim/rsense
 	url = https://github.com/rsense/rsense.git
+[submodule ".zplugin/bin"]
+	path = .zplugin/bin
+	url = https://github.com/zdharma/zplugin.git

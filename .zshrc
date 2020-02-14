@@ -19,25 +19,23 @@ compinit
 
 set -o vi
 
-# Configuration for zplug
-source ${HOME}/.zsh/.zplug/init.zsh
+# Configuration for zplugin
+source ${HOME}/.zplugin/bin/zplugin.zsh
 
-zplug "plugins/git", from:oh-my-zsh
-zplug "tcnksm/docker-alias", use:zshrc
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "themes/agnoster", from:oh-my-zsh, as:theme
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zsh-users/zsh-completions
+zplugin light zdharma/fast-syntax-highlighting
+# Load OMZ Git library
+zplugin snippet OMZ::lib/git.zsh
+# Load Git plugin from OMZ
+zplugin snippet OMZ::plugins/git/git.plugin.zsh
+zplugin cdclear -q # <- forget completions provided up to this moment
+setopt promptsubst
+# Load theme from OMZ
+zplugin snippet OMZ::themes/agnoster.zsh-theme
 
-if ! zplug check --verbose; then
-	print "Install? [y/N]:"
-	if read -q; then
-		echo; zplug install
-	fi
-fi
-
-zplug load
-
+zplugin ice svn
+zplugin snippet PZT::modules/docker
 
 # Go
 if [ -e /usr/local/go ]; then
