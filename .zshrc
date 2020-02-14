@@ -25,6 +25,10 @@ source ${HOME}/.zinit/bin/zinit.zsh
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
+
+zinit ice pick"init.sh"
+zinit light b4b4r07/enhancd
+
 # Load OMZ Git library
 zinit snippet OMZ::lib/git.zsh
 # Load Git plugin from OMZ
@@ -36,6 +40,7 @@ zinit snippet OMZ::themes/agnoster.zsh-theme
 
 zinit ice svn
 zinit snippet PZT::modules/docker
+
 
 # Go
 if [ -e /usr/local/go ]; then
