@@ -19,23 +19,23 @@ compinit
 
 set -o vi
 
-# Configuration for zplugin
-source ${HOME}/.zplugin/bin/zplugin.zsh
+# Configuration for zinit
+source ${HOME}/.zinit/bin/zinit.zsh
 
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zsh-users/zsh-completions
-zplugin light zdharma/fast-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zdharma/fast-syntax-highlighting
 # Load OMZ Git library
-zplugin snippet OMZ::lib/git.zsh
+zinit snippet OMZ::lib/git.zsh
 # Load Git plugin from OMZ
-zplugin snippet OMZ::plugins/git/git.plugin.zsh
-zplugin cdclear -q # <- forget completions provided up to this moment
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit cdclear -q # <- forget completions provided up to this moment
 setopt promptsubst
 # Load theme from OMZ
-zplugin snippet OMZ::themes/agnoster.zsh-theme
+zinit snippet OMZ::themes/agnoster.zsh-theme
 
-zplugin ice svn
-zplugin snippet PZT::modules/docker
+zinit ice svn
+zinit snippet PZT::modules/docker
 
 # Go
 if [ -e /usr/local/go ]; then

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-install_list=".tmux.conf .tmux .vimrc .vim .zshrc .zsh .zplugin"
+install_list=".tmux.conf .tmux .vimrc .vim .zshrc .zsh .zinit"
 
 for f in $install_list
 do
