@@ -26,9 +26,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
 
-zinit ice pick"init.sh"
-zinit light b4b4r07/enhancd
-
 # Load OMZ Git library
 zinit snippet OMZ::lib/git.zsh
 # Load Git plugin from OMZ
