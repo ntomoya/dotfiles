@@ -7,6 +7,7 @@ SAVEHIST=10000
 setopt inc_append_history
 setopt share_history
 bindkey -e
+setopt no_beep
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename "${HOME}/.zshrc"
