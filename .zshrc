@@ -16,10 +16,6 @@ bindkey -e
 # no beep
 setopt no_beep
 
-zstyle :compinstall filename "${HOME}/.zshrc"
-autoload -Uz compinit
-compinit
-
 # Load zinit
 source ${HOME}/.zinit/bin/zinit.zsh
 
@@ -37,7 +33,8 @@ zinit snippet OMZ::themes/agnoster.zsh-theme
 zinit ice svn
 zinit snippet PZT::modules/docker
 
-# Utilities
+autoload -Uz compinit
+compinit
 
 # execute ls when current directory changed
 chpwd () {
