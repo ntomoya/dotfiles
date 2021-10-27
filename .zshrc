@@ -31,7 +31,6 @@ setopt promptsubst
 # Load theme from OMZ
 zinit snippet OMZ::themes/agnoster.zsh-theme
 zinit ice svn
-zinit snippet PZT::modules/docker
 
 autoload -Uz compinit
 if [ $(date +'%j') != $(date -r ${ZDOTDIR:-$HOME}/.zcompdump +'%j') ]; then
