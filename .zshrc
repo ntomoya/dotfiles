@@ -1,32 +1,31 @@
 #!/bin/zsh
 
-# Lines configured by zsh-newuser-install
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# history 
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 setopt inc_append_history
 setopt share_history
-bindkey -e
-setopt no_beep
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename "${HOME}/.zshrc"
 
+# use emacs keybind
+bindkey -e
+
+# no beep
+setopt no_beep
+
+zstyle :compinstall filename "${HOME}/.zshrc"
 autoload -Uz compinit
 compinit
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-set -o vi
-
-# Configuration for zinit
+# Load zinit
 source ${HOME}/.zinit/bin/zinit.zsh
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
-
 # Load OMZ Git library
 zinit snippet OMZ::lib/git.zsh
 # Load Git plugin from OMZ
@@ -35,7 +34,6 @@ zinit cdclear -q # <- forget completions provided up to this moment
 setopt promptsubst
 # Load theme from OMZ
 zinit snippet OMZ::themes/agnoster.zsh-theme
-
 zinit ice svn
 zinit snippet PZT::modules/docker
 
