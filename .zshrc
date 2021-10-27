@@ -34,7 +34,11 @@ zinit ice svn
 zinit snippet PZT::modules/docker
 
 autoload -Uz compinit
-compinit
+if [ $(date +'%j') != $(date -r ${ZDOTDIR:-$HOME}/.zcompdump +'%j') ]; then
+  compinit
+else
+  compinit -C
+fi
 
 # execute ls when current directory changed
 chpwd () {
