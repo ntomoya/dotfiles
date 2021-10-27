@@ -35,11 +35,9 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
 
-# Load OMZ Git library
-zinit snippet OMZ::lib/git.zsh
-# Load Git plugin from OMZ
-zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit cdclear -q # <- forget completions provided up to this moment
+zinit snippet OMZL::git.zsh
+zinit snippet OMZP::git
+zinit snippet PZTM::helper
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
