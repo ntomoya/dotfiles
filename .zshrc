@@ -39,28 +39,6 @@ zinit snippet OMZ::themes/agnoster.zsh-theme
 zinit ice svn
 zinit snippet PZT::modules/docker
 
-
-# Go
-if [ -e /usr/local/go ]; then
-  export PATH=/usr/local/go/bin:$PATH
-fi
-
-if hash go 2>/dev/null; then
-  export GOPATH=$HOME/go
-  export PATH=$GOPATH/bin:$PATH
-fi
-
-
-# Ruby
-if [ -e $HOME/.rbenv ]; then
-  export PATH=$HOME/.rbenv/bin:$PATH
-fi
-# lazy loading
-rbenv() {
-  eval "$(command rbenv init -)"
-  rbenv "$@"
-}
-
 # Utilities
 
 # execute ls when current directory changed
