@@ -61,9 +61,35 @@ rbenv() {
   rbenv "$@"
 }
 
+# Utilities
+
+# execute ls when current directory changed
+chpwd () {
+  ls --color
+}
+
+# an alias for ssh port forwarding
+# $ fssh hostname 8090 8080 # forwarding remote hostname's 8090 to 8080
+# $ fssh hostname 8080      # forwarding remote hostname's 8080 to 8080
+fssh () {
+  if [ $# -lt 2 ]; then
+    echo "Usage: fssh <remote> <port>"
+    return 1
+  fi
+
+  local host=$1
+  local rport=$2
+  local lport=$3
+  if [[ -z $lport ]]; then
+    lport=$2
+  fi
+
+  echo "forwarding ${host}:${rport} to localhost:${lport}"
+  ssh -L "${lport}:localhost:${rport}" -C -N "${host}"
+}
 
 case $(uname -a) in
-  *Microsoft*)
+  *Microsoft*) # WSL1
     source "$HOME/.zsh/.zshrc.wsl"
     ;;
   Linux*)
