@@ -48,11 +48,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit ice svn
 
 autoload -Uz compinit
-if [ $(date +'%j') != $(date -r ${ZDOTDIR:-$HOME}/.zcompdump +'%j') ]; then
-  compinit
-else
-  compinit -C
-fi
+compinit
 
 # execute ls when current directory changed
 chpwd () {
