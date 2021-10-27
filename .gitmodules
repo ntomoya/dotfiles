@@ -7,9 +7,6 @@
 [submodule ".vim/rsense"]
 	path = .vim/rsense
 	url = https://github.com/rsense/rsense.git
-[submodule ".zplugin/bin"]
-	path = .zplugin/bin
-	url = https://github.com/zdharma/zplugin.git
 [submodule ".zinit/bin"]
 	path = .zinit/bin
 	url = https://github.com/zdharma/zinit
