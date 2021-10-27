@@ -6,7 +6,12 @@
 # history 
 HISTFILE=~/.histfile
 HISTSIZE=10000
-SAVEHIST=10000
+SAVEHIST=100000
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_no_store
 setopt inc_append_history
 setopt share_history
 
