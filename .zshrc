@@ -50,6 +50,9 @@ else
   compinit -C
 fi
 
+# search history
+alias hg="history -E 1 | grep"
+
 # execute ls when current directory changed
 chpwd () {
   ls --color
