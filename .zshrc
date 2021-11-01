@@ -33,7 +33,7 @@ source ${HOME}/.zinit/bin/zinit.zsh
 
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
-zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
