@@ -78,6 +78,89 @@ fssh () {
   ssh -L "${lport}:localhost:${rport}" -C -N "${host}"
 }
 
+ex () {
+  local directory=true
+  while [[ $# -gt 0 ]]; do
+    case $1 in
+      -n | --no-directory)
+        directory=false
+        shift
+        ;;
+      -*)
+        echo "Unknown option: $1"
+        return 1
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  if [[ -z "$1" ]]; then
+    echo "Usage: extract [-n] <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    return 1
+  fi
+
+  local file="$1"
+  local base="${file%.*}"
+  local target="$PWD"
+
+  if [[ ! -f $file ]]; then
+    echo "$1 - file does not exist"
+    return 1
+  fi
+
+  if [[ $directory == true ]]; then
+    mkdir -p -- "$base" || return 1
+    target="$PWD/$base"
+  fi
+
+  case $file in
+    *.tar.bz2 | *.tbz2)
+      tar xvjf "$file" -C "$target"
+      ;;
+    *.tar.gz | *.tgz)
+      tar xvzf "$file" -C "$target"
+      ;;
+    *.tar.xz | *.txz)
+      tar xvJf "$file" -C "$target"
+      ;;
+    *.lzma)
+      unlzma "$file"
+      ;;
+    *.bz2)
+      bunzip2 "$file"
+      ;;
+    *.rar)
+      unrar x -ad "$file" "$target"
+      ;;
+    *.gz)
+      gunzip "$file"
+      ;;
+    *.tar)
+      tar xvf "$file" -C "$target"
+      ;;
+    *.zip)
+      unzip "$file" -d "$target"
+      ;;
+    *.Z)
+      uncompress $file
+      ;;
+    *.7z)
+      7z x "$file" -o "$target"
+      ;;
+    *.xz)
+      unxz "$file"
+      ;;
+    *.exe)
+      cabextract "$file" -d "$target"
+      ;;
+    *)
+      echo "extract: '$file' - unknown archive method"
+      ;;
+  esac
+}
+
 case $(uname -a) in
   *Microsoft*) # WSL1
     source "$HOME/.zsh/.zshrc.wsl"
