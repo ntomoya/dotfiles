@@ -102,7 +102,7 @@ ex () {
   fi
 
   local file="$1"
-  local base="${file%.*}"
+  local base="${file%%.*}"
   local target="$PWD"
 
   if [[ ! -f $file ]]; then
