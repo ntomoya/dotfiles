@@ -147,7 +147,7 @@ ex () {
       uncompress $file
       ;;
     *.7z)
-      7z x "$file" -o "$target"
+      7z x "$file" "-o$target"
       ;;
     *.xz)
       unxz "$file"
