@@ -1,2 +1,7 @@
+# execute ls when current directory changed
+chpwd () {
+  ls --color
+}
+
 alias ls='ls --color=auto'
 

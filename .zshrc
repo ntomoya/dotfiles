@@ -53,11 +53,6 @@ fi
 # search history
 alias hg="history -E 1 | grep"
 
-# execute ls when current directory changed
-chpwd () {
-  ls --color
-}
-
 # an alias for ssh port forwarding
 # $ fssh hostname 8090 8080 # forwarding remote hostname's 8090 to 8080
 # $ fssh hostname 8080      # forwarding remote hostname's 8080 to 8080
